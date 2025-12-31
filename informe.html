@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Generación Informe PDF</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "serif": ["Noto Serif", "serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body { min-height: max(884px, 100dvh); }
+        .pdf-preview::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        .pdf-preview::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+            border-radius: 4px;
+        }
+        .pdf-preview::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.2);
+            border-radius: 4px;
+        }
+        .pdf-preview::-webkit-scrollbar-thumb:hover {
+            background: rgba(0,0,0,0.3);
+        }
+        .dark .pdf-preview::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+        }
+        .dark .pdf-preview::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-white overflow-hidden">
+<div class="relative flex h-full min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-hidden">
+<div class="flex items-center bg-white dark:bg-[#1A2633] p-4 pb-2 justify-between sticky top-0 z-20 shadow-sm border-b border-gray-100 dark:border-gray-800">
+<div class="text-[#111418] dark:text-white flex size-12 shrink-0 items-center justify-center rounded-full active:bg-gray-100 dark:active:bg-gray-800 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Generar Informe</h2>
+</div>
+<div class="flex-1 overflow-y-auto pb-32">
+<div class="px-4 pt-6 pb-2">
+<h1 class="text-2xl font-bold text-[#111418] dark:text-white mb-1">Previsualización</h1>
+<p class="text-sm text-[#617589] dark:text-gray-400">Seleccione una plantilla y revise el aspecto final de su documento PDF.</p>
+</div>
+<div class="px-4 py-3">
+<div class="flex items-center justify-between mb-3">
+<h3 class="text-base font-bold text-[#111418] dark:text-white">Estilo del Informe</h3>
+<span class="text-xs font-medium text-primary cursor-pointer hover:underline">Ver galería</span>
+</div>
+<div class="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 snap-x hide-scrollbar">
+<div class="flex flex-col gap-2 shrink-0 w-32 cursor-pointer group snap-center">
+<div class="relative aspect-[0.7] rounded-xl border-2 border-primary bg-white dark:bg-[#1A2633] overflow-hidden shadow-md transition-transform active:scale-95 ring-2 ring-primary/20">
+<div class="absolute top-0 w-full h-8 bg-primary/10 border-b border-primary/10"></div>
+<div class="p-2 pt-10 flex flex-col gap-1.5 opacity-80">
+<div class="w-2/3 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+<div class="w-full h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full"></div>
+<div class="w-full h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full"></div>
+<div class="mt-2 w-full h-8 bg-gray-50 dark:bg-gray-800 rounded border border-gray-100 dark:border-gray-700"></div>
+</div>
+<div class="absolute bottom-2 right-2 flex items-center justify-center w-6 h-6 bg-primary rounded-full text-white shadow-sm ring-2 ring-white dark:ring-[#1A2633]">
+<span class="material-symbols-outlined text-[14px] leading-none font-bold">check</span>
+</div>
+</div>
+<span class="text-xs font-bold text-center text-primary">Profesional</span>
+</div>
+<div class="flex flex-col gap-2 shrink-0 w-32 cursor-pointer group snap-center opacity-70 hover:opacity-100 transition-all">
+<div class="relative aspect-[0.7] rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1A2633] overflow-hidden transition-transform active:scale-95 hover:border-gray-300 dark:hover:border-gray-600">
+<div class="absolute left-0 top-0 bottom-0 w-1/4 bg-gray-100 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700"></div>
+<div class="p-2 pl-[30%] flex flex-col gap-2 pt-4 opacity-60">
+<div class="w-full h-10 bg-gray-100 dark:bg-gray-800 rounded"></div>
+<div class="w-full h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full"></div>
+<div class="w-2/3 h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full"></div>
+</div>
+</div>
+<span class="text-xs font-medium text-center text-[#111418] dark:text-gray-400 group-hover:text-[#111418] dark:group-hover:text-gray-200">Moderno</span>
+</div>
+<div class="flex flex-col gap-2 shrink-0 w-32 cursor-pointer group snap-center opacity-70 hover:opacity-100 transition-all">
+<div class="relative aspect-[0.7] rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1A2633] overflow-hidden transition-transform active:scale-95 hover:border-gray-300 dark:hover:border-gray-600">
+<div class="w-full h-1/2 bg-gray-50 dark:bg-gray-800 flex items-end p-2">
+<div class="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 mb-[-16px] border-2 border-white dark:border-[#1A2633]"></div>
+</div>
+<div class="mt-5 px-2 flex flex-col gap-1 opacity-60">
+<div class="w-full h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full"></div>
+<div class="w-full h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full"></div>
+</div>
+</div>
+<span class="text-xs font-medium text-center text-[#111418] dark:text-gray-400 group-hover:text-[#111418] dark:group-hover:text-gray-200">Visual</span>
+</div>
+</div>
+</div>
+<div class="px-4 py-2">
+<div class="flex items-center justify-between mb-3">
+<h3 class="text-base font-bold text-[#111418] dark:text-white">Vista Previa del Documento</h3>
+<div class="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-lg">
+<span class="text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Página 1 de 5</span>
+</div>
+</div>
+<div class="bg-gray-200 dark:bg-[#0d1218] rounded-2xl p-4 shadow-inner border border-gray-200 dark:border-gray-800 overflow-hidden relative group/viewer">
+<div class="absolute top-4 right-4 z-10 flex flex-col gap-2 opacity-0 group-hover/viewer:opacity-100 transition-opacity duration-300">
+<button class="w-8 h-8 rounded-full bg-white/90 dark:bg-black/50 backdrop-blur text-gray-700 dark:text-white shadow-sm flex items-center justify-center hover:bg-white dark:hover:bg-black transition-colors">
+<span class="material-symbols-outlined text-lg">zoom_in</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-white/90 dark:bg-black/50 backdrop-blur text-gray-700 dark:text-white shadow-sm flex items-center justify-center hover:bg-white dark:hover:bg-black transition-colors">
+<span class="material-symbols-outlined text-lg">fullscreen</span>
+</button>
+</div>
+<div class="pdf-preview overflow-y-auto max-h-[460px] pr-1 pb-4">
+<div class="bg-white text-[#111418] w-full aspect-[210/297] shadow-xl rounded-sm p-[6%] flex flex-col relative mx-auto mb-4 origin-top transition-transform">
+<div class="flex justify-between items-start border-b-2 border-primary pb-3 mb-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[14px]">home</span>
+</div>
+<div>
+<h1 class="text-primary font-bold text-[10px] leading-none uppercase tracking-wide">Inmobiliaria<br/>Profesional</h1>
+</div>
+</div>
+<div class="text-right">
+<p class="text-[8px] font-bold text-gray-800">INFORME DE TASACIÓN</p>
+<p class="text-[7px] text-gray-500">REF: #2023-8823L</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 flex-1">
+<div class="flex gap-3 h-[28%]">
+<div class="w-2/3 h-full rounded-sm bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDGI0AJAg9eram49M3rqe2jDkFWjaxFk8KG49XwLPRKM-4IFh21TafUTnkuAhCan2dVUAJsjT3_0C79HYdePO1ot7saNInPzUrh7UOz4LXuWkd30EQO8mQY39hMfrP14SbNLFb_OtUWfnZ53n6NLEWM358RMCq-r-4h_8ncm8vPACJjrQYqp_gGEcAxmqnhjZeHBtQ5aZhseNli3Sq5YcC36T6v40xyNdHz8VnAj9O8sAKeS8ja3Vr37WLk4KD_-z58Hh7or5L3vHo");'></div>
+<div class="w-1/3 flex flex-col justify-between">
+<div class="bg-primary/5 p-2 h-full rounded-sm flex flex-col justify-center items-center text-center border border-primary/10">
+<p class="text-[6px] uppercase tracking-widest text-primary font-bold mb-1">VALOR SUGERIDO</p>
+<p class="text-sm font-black text-primary mb-0.5">UF 12.500</p>
+<div class="w-full h-px bg-primary/20 my-1"></div>
+<p class="text-[6px] text-gray-500">CLP $456.250.000</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<div class="flex items-center gap-1 mb-1 pb-1 border-b border-gray-100">
+<span class="material-symbols-outlined text-[8px] text-gray-400">location_on</span>
+<h2 class="text-[8px] font-bold uppercase text-gray-700">Propiedad</h2>
+</div>
+<p class="text-[9px] font-bold leading-tight mb-0.5">Av. Libertador 1234</p>
+<p class="text-[8px] text-gray-500 mb-2">Las Condes, Región Metropolitana</p>
+<div class="grid grid-cols-3 gap-1">
+<div class="bg-gray-50 rounded p-1 text-center">
+<span class="material-symbols-outlined text-[8px] text-primary block mx-auto">bed</span>
+<span class="text-[7px] font-bold block">3</span>
+</div>
+<div class="bg-gray-50 rounded p-1 text-center">
+<span class="material-symbols-outlined text-[8px] text-primary block mx-auto">shower</span>
+<span class="text-[7px] font-bold block">2</span>
+</div>
+<div class="bg-gray-50 rounded p-1 text-center">
+<span class="material-symbols-outlined text-[8px] text-primary block mx-auto">square_foot</span>
+<span class="text-[7px] font-bold block">120</span>
+</div>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-1 mb-1 pb-1 border-b border-gray-100">
+<span class="material-symbols-outlined text-[8px] text-gray-400">map</span>
+<h2 class="text-[8px] font-bold uppercase text-gray-700">Macro Ubicación</h2>
+</div>
+<div class="w-full aspect-video bg-gray-100 rounded-sm bg-cover bg-center opacity-90 border border-gray-200" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAn6ITTQadKTBJ7BMitRiQC7TUfBMOIcwVcgBmJ7xHBFWCMo5hnftRYUeab5pcA7wH21Kube32FLJGrF3jnOiOVW-gluDrlBsxGELkYSYhd-NTd7UgicpzA8Etd4SXabj9vKObiTnQKeYjTH8hdDvyqZyObqWUcNanAYZ59Os64uThWftJvA4zZT4s6Psg0EA5daT1qlIEYzQbKFDPkT0mkMR3Spl47UpsYKlkrGfXe4mQM8fAzh6XnOE4pseCYJc5Qa0srFW-82Hg");'></div>
+</div>
+</div>
+<div class="mt-2">
+<div class="flex items-center gap-1 mb-2 pb-1 border-b border-gray-100">
+<span class="material-symbols-outlined text-[8px] text-gray-400">compare_arrows</span>
+<h2 class="text-[8px] font-bold uppercase text-gray-700">Muestra de Comparables</h2>
+</div>
+<table class="w-full text-[7px] text-left border-collapse">
+<thead>
+<tr class="bg-gray-50 text-gray-500 border-b border-gray-200">
+<th class="p-1 font-medium">Dirección</th>
+<th class="p-1 font-medium text-right">Superficie</th>
+<th class="p-1 font-medium text-right">Valor (UF)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-gray-50">
+<td class="p-1 truncate max-w-[80px]">Calle Los Olivos 442</td>
+<td class="p-1 text-right text-gray-500">118 m²</td>
+<td class="p-1 text-right font-bold">12.100</td>
+</tr>
+<tr class="border-b border-gray-50">
+<td class="p-1 truncate max-w-[80px]">Av. Apoquindo 5500</td>
+<td class="p-1 text-right text-gray-500">125 m²</td>
+<td class="p-1 text-right font-bold">12.800</td>
+</tr>
+<tr class="border-b border-gray-50">
+<td class="p-1 truncate max-w-[80px]">Psje. Las Rosas 89</td>
+<td class="p-1 text-right text-gray-500">115 m²</td>
+<td class="p-1 text-right font-bold">11.950</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-auto pt-4">
+<div class="flex gap-1 h-8">
+<div class="flex-1 bg-cover bg-center rounded-sm" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDKCmvdhUsDXLmkqLmbyEARqOc-xXagZJtPYhm-ti4VFuXsYxwj8H7QLvaHyWq7On6ose_q_5imooyltBqvgKDs_-kyFunREZoWqgIxBMk37ckTcJxeHxtuqKwT_lvI92QpBYMccWP8ojjnsF54GlQ5cI7zO2smPURNWWUCbvB5ET4nWt140p5_DXUiGfKTJL1ocMs7vdhZzA5qibaSUCLgJXYT1J_LNLdYzsFmsh6QQ5wlfp3U-aYGpibuq-FeZD61-SZlMFYg1eY");'></div>
+<div class="flex-1 bg-cover bg-center rounded-sm" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBNFNcWRr4bUl8Lj8sUIq5Jy3dXbm6yQq5SoN4FpuSqv_DLGLliXIIbEhvV1OxeX0oJvsIIC8IJYhX8kQkCwzXLZueGpDoYdEqj92l8m7jGukgz3D6boDG6qOBxXndJ0KkgLy6cFiH-8yKoaEoS8nMsPZiLYUmSruVRN1Cqq-Wz1IzA5IZ3bK-K4Toeb17gUU3qSPYyldn9HSTDkv0fcEi6IedsM4zdH_DGFZZ81E1GkkZp3ow76vAFKAmQZnC36WrLGzyOx6wuDjc");'></div>
+<div class="flex-1 bg-cover bg-center rounded-sm" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDGcxqx_GrXirgH-Ig5PPHhOgYpTT53td221IYgcArqcfm6TV94dppsgzAmjTGN0zMA3ORR6xM3j_owYw28qQU3mxZQr9Mzjkz4xpnqutUzMecR9gOvHfvcR5qsvCcW79PDSeH5bUPzybshPv4qzhFG824IwS5MzQ8Lgn1w5fiBsW5Ox1BdEY1Bj_LZEL6fyh5ZOFlLwktBHjbjv0wVr4Q90YhyCcTrn5O8gs7O7258JOMw_JmMW-zXGOrgRQPwy7M542ENVSb1GFY");'></div>
+<div class="flex-1 bg-gray-50 flex items-center justify-center rounded-sm border border-gray-100">
+<span class="text-[6px] text-gray-400 font-bold">+5</span>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-100 pt-2 flex justify-between items-end mt-4">
+<div class="text-[6px] text-gray-400">
+                                Documento confidencial • Generado el 24/10/2023
+                            </div>
+<div class="text-[6px] text-gray-400 font-bold">
+                                Página 1
+                            </div>
+</div>
+</div>
+<div class="bg-white opacity-50 w-full aspect-[210/297] shadow-lg rounded-sm p-[6%] flex flex-col relative mx-auto border border-gray-200">
+<div class="h-4 w-1/3 bg-gray-100 mb-6"></div>
+<div class="h-2 w-full bg-gray-50 mb-2"></div>
+<div class="h-2 w-full bg-gray-50 mb-2"></div>
+<div class="h-2 w-2/3 bg-gray-50 mb-8"></div>
+<div class="grid grid-cols-2 gap-4">
+<div class="aspect-square bg-gray-50 rounded"></div>
+<div class="aspect-square bg-gray-50 rounded"></div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-t from-gray-200 dark:from-[#0d1218] to-transparent pointer-events-none"></div>
+</div>
+</div>
+<div class="px-6 py-6 text-center">
+<p class="text-xs text-[#617589] dark:text-gray-500 mb-2">Este informe es una estimación de valor de mercado basada en datos actuales.</p>
+<div class="flex justify-center gap-4 text-xs font-medium text-primary">
+<span class="cursor-pointer hover:text-blue-700">Ver notas legales</span>
+<span class="cursor-pointer hover:text-blue-700">Editar información</span>
+</div>
+</div>
+</div>
+<div class="absolute bottom-0 w-full bg-white dark:bg-[#1A2633] border-t border-gray-200 dark:border-gray-700 p-4 pb-8 shadow-[0_-4px_12px_rgba(0,0,0,0.08)] z-30">
+<div class="flex items-center gap-3">
+<button class="flex-1 flex items-center justify-center h-12 bg-white dark:bg-transparent border border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 active:scale-[0.98] transition-all rounded-full text-gray-600 dark:text-gray-300 font-bold text-sm">
+<span class="material-symbols-outlined mr-2">download</span>
+                Descargar
+            </button>
+<button class="flex-[1.5] flex items-center justify-center h-12 bg-primary hover:bg-blue-600 active:scale-[0.98] transition-all rounded-full text-white font-bold text-base shadow-lg shadow-blue-500/30">
+<span class="material-symbols-outlined mr-2">picture_as_pdf</span>
+                Generar PDF
+            </button>
+</div>
+</div>
+</div>
+
+</body></html>
