@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Dashboard General de Tasaciones</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            min-height: 100dvh;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white pb-32">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<header class="sticky top-0 z-30 bg-white dark:bg-[#1A2633] shadow-sm border-b border-gray-100 dark:border-gray-800 transition-colors pt-[env(safe-area-inset-top)]">
+<div class="flex items-center justify-between px-4 pt-4 pb-2">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-primary/20" data-alt="User profile avatar showing a professional person" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDYOUI0nedW51lMuHZ5vidipe4_cYRK0i4D3V8NVgWC6cGsW1gCzgqM06c-sY3_WR6Duao9TP4m04-4YRi2hF9zf5xEQA1QJ5birWTiufoETAACGS17MPmvY3mMvzkTu4vSUsgqwkiM0GVV0ebu5st3q9p2Rb6gLOJZRg4hmfgCs-t_4axrda-YlOkfsLAdkT17crl0lDtqhtHNmv7-Ll5yyeh0iUWidugOaioiJm0jpw2rgYfQhHF2pyvG61TDEYPOYwiSO8BymxE");'>
+</div>
+<div class="absolute bottom-0 right-0 size-3 bg-green-500 rounded-full border-2 border-white dark:border-[#1A2633]"></div>
+</div>
+<div class="flex flex-col">
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Dashboard</h2>
+<span class="text-xs text-gray-500 dark:text-gray-400 font-medium">Inmobiliaria Premium</span>
+</div>
+</div>
+<button class="flex items-center justify-center rounded-full size-10 bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700 text-[#111418] dark:text-white transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+<div class="flex flex-col gap-3 px-4 pb-4">
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-gray-400 text-[20px]">search</span>
+</div>
+<input class="block w-full rounded-xl border-none bg-gray-100 dark:bg-gray-800/50 py-2.5 pl-10 pr-3 text-sm text-[#111418] dark:text-white placeholder-gray-500 focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-gray-800 transition-all shadow-sm" inputmode="search" placeholder="Buscar por cliente o propiedad..." type="search"/>
+</div>
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+<button class="flex shrink-0 items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1A2633] active:bg-gray-50 dark:active:bg-gray-800 transition-colors group">
+<span class="text-xs font-semibold text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white">Estado</span>
+<span class="material-symbols-outlined text-[18px] text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-200">expand_more</span>
+</button>
+<button class="flex shrink-0 items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1A2633] active:bg-gray-50 dark:active:bg-gray-800 transition-colors group">
+<span class="text-xs font-semibold text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white">Fecha</span>
+<span class="material-symbols-outlined text-[16px] text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-200">calendar_month</span>
+</button>
+<button class="flex shrink-0 items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1A2633] active:bg-gray-50 dark:active:bg-gray-800 transition-colors group">
+<span class="text-xs font-semibold text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white">Asignado a</span>
+<span class="material-symbols-outlined text-[16px] text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-200">person</span>
+</button>
+</div>
+</div>
+</header>
+<div class="p-4 pt-4 space-y-4">
+<section aria-label="Resumen de Métricas">
+<div class="grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-1 rounded-xl p-4 bg-white dark:bg-[#1A2633] shadow-sm border border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-2 mb-1">
+<div class="p-1.5 rounded-md bg-blue-50 dark:bg-blue-900/30 text-primary">
+<span class="material-symbols-outlined text-[20px]">folder_open</span>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-semibold uppercase tracking-wide">Total</p>
+</div>
+<p class="text-[#111418] dark:text-white text-2xl font-bold leading-tight">42</p>
+<p class="text-xs text-green-600 font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +12%
+                        </p>
+</div>
+<div class="flex flex-col gap-1 rounded-xl p-4 bg-white dark:bg-[#1A2633] shadow-sm border border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-2 mb-1">
+<div class="p-1.5 rounded-md bg-green-50 dark:bg-green-900/30 text-green-600">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-semibold uppercase tracking-wide">Finalizadas</p>
+</div>
+<p class="text-[#111418] dark:text-white text-2xl font-bold leading-tight">32</p>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-1 mt-auto">
+<div class="bg-green-500 h-1 rounded-full" style="width: 76%"></div>
+</div>
+</div>
+<div class="flex flex-col gap-1 rounded-xl p-4 bg-white dark:bg-[#1A2633] shadow-sm border border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-2 mb-1">
+<div class="p-1.5 rounded-md bg-orange-50 dark:bg-orange-900/30 text-orange-500">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-semibold uppercase tracking-wide">Borrador</p>
+</div>
+<p class="text-[#111418] dark:text-white text-2xl font-bold leading-tight">5</p>
+<p class="text-xs text-orange-500 font-medium">Acción requerida</p>
+</div>
+<div class="flex flex-col gap-1 rounded-xl p-4 bg-white dark:bg-[#1A2633] shadow-sm border border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-2 mb-1">
+<div class="p-1.5 rounded-md bg-purple-50 dark:bg-purple-900/30 text-purple-500">
+<span class="material-symbols-outlined text-[20px]">attach_money</span>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-semibold uppercase tracking-wide">Promedio</p>
+</div>
+<p class="text-[#111418] dark:text-white text-2xl font-bold leading-tight">$185k</p>
+<p class="text-xs text-gray-400">USD</p>
+</div>
+</div>
+</section>
+<section>
+<div class="rounded-xl bg-white dark:bg-[#1A2633] p-5 shadow-sm border border-gray-100 dark:border-gray-800">
+<div class="flex justify-between items-end mb-4">
+<div class="flex flex-col gap-1">
+<h3 class="text-[#111418] dark:text-white text-base font-bold leading-normal">Evolución Mensual</h3>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-normal">Últimos 6 meses</p>
+</div>
+<div class="flex items-center gap-1 bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-green-600 text-[16px]">trending_up</span>
+<span class="text-green-700 dark:text-green-500 text-xs font-bold">+8.4%</span>
+</div>
+</div>
+<div class="relative w-full h-[120px]">
+<svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 300 100">
+<defs>
+<linearGradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#137fec" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#137fec" stop-opacity="0"></stop>
+</linearGradient>
+</defs>
+<path d="M0,80 C50,80 50,40 100,40 C150,40 150,60 200,30 C250,0 250,20 300,10 L300,100 L0,100 Z" fill="url(#chartGradient)"></path>
+<path d="M0,80 C50,80 50,40 100,40 C150,40 150,60 200,30 C250,0 250,20 300,10" fill="none" stroke="#137fec" stroke-linecap="round" stroke-width="3" vector-effect="non-scaling-stroke"></path>
+</svg>
+</div>
+<div class="flex justify-between mt-2 px-1">
+<p class="text-gray-400 dark:text-gray-500 text-[10px] font-bold uppercase">Feb</p>
+<p class="text-gray-400 dark:text-gray-500 text-[10px] font-bold uppercase">Mar</p>
+<p class="text-gray-400 dark:text-gray-500 text-[10px] font-bold uppercase">Abr</p>
+<p class="text-gray-400 dark:text-gray-500 text-[10px] font-bold uppercase">May</p>
+<p class="text-gray-400 dark:text-gray-500 text-[10px] font-bold uppercase">Jun</p>
+<p class="text-gray-400 dark:text-gray-500 text-[10px] font-bold uppercase">Jul</p>
+</div>
+</div>
+</section>
+</div>
+<div class="flex flex-col pb-4">
+<div class="flex items-center justify-between px-4 pb-2 pt-2">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight">Tasaciones Recientes</h3>
+<a class="text-primary text-sm font-semibold hover:underline" href="#">Ver todas</a>
+</div>
+<div class="group active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="flex gap-4 px-4 py-3 justify-between items-center border-b border-gray-100 dark:border-gray-800/50">
+<div class="flex items-center gap-4 w-full">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[60px] shrink-0 relative" data-alt="Modern house exterior with glass facade" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDnlKtwIlDywlvAZdwOCWYR4_GHur50WVVQyL7hvZ_PHPOS0R18gnfE3vP9YH-WO1lmRBcQop8P2ChOGR_eW876Wme7PNtmSPJj8hzuZFWG1YotRzcc8jX5phuG3Yg6cp9WOK4hWRueOJLmAwHxEq4NZX3EhZnaeKVdO1CIOeP237LhREgPg_vnHoWrwtul8RC4EmdOWhWdAhK__IzDVmSRy83raid7UH7Bnj0npQ20gUuTncA3md8KByVKK7ma5z_nSY1fRLaJmio");'>
+<div class="absolute inset-0 bg-black/10 rounded-lg"></div>
+</div>
+<div class="flex flex-1 flex-col justify-center min-w-0">
+<div class="flex justify-between items-start">
+<p class="text-[#111418] dark:text-white text-base font-bold leading-tight truncate pr-2">Av. Libertador 2400</p>
+<span class="text-xs font-medium text-gray-500 dark:text-gray-400 whitespace-nowrap">Hoy</span>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal truncate mt-0.5">Cliente: Juan Pérez</p>
+<div class="mt-1.5 flex items-center">
+<span class="bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                                    Borrador
+                                </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="group active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="flex gap-4 px-4 py-3 justify-between items-center border-b border-gray-100 dark:border-gray-800/50">
+<div class="flex items-center gap-4 w-full">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[60px] shrink-0 relative" data-alt="Classic brick apartment building view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAmzBJzsKKDN1LCQxpKEhFja-4nZyc9QG9UqkoAVsxAsfvehYGtfMybnxleSpKBkfjZhNt_VhLrd3L4Y3lZoo6lOLK6r06OxbDIDqZFml8EVHbdsHN3Lp7uHaenyD58l80MpQnGufp8uDVZrJ-RKjai1Y1SSLg8OkKpwWERdZiqUoHsy4flye90qcvEpFdBZgvEEPd902mR3HdezAtEZB_5vDWxK6MmlD6jlF5blwwtpzDB3EyVe57QZyGbID78JY--zIOwCumXaNQ");'>
+</div>
+<div class="flex flex-1 flex-col justify-center min-w-0">
+<div class="flex justify-between items-start">
+<p class="text-[#111418] dark:text-white text-base font-bold leading-tight truncate pr-2">Calle 50 Nro 420</p>
+<span class="text-xs font-medium text-gray-500 dark:text-gray-400 whitespace-nowrap">Ayer</span>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal truncate mt-0.5">Cliente: Maria Gomez</p>
+<div class="mt-1.5 flex items-center">
+<span class="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                                    Finalizada
+                                </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="group active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="flex gap-4 px-4 py-3 justify-between items-center border-b border-gray-100 dark:border-gray-800/50">
+<div class="flex items-center gap-4 w-full">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[60px] shrink-0 relative" data-alt="Tall modern skyscraper against blue sky" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAfEpTN-AlX87jDFq61SdCihW39wHkL7GKuU1HfKYb1NIfI9iZkwJ3yFTLsp_Rjc_Zfsc8p44fX8djAJGle6fj1F_irzjqnLa67vrF9oC7NvMBo2HIn2tCBR4Ufy1dPTSA5toyaxq6-Lv2hjX9Xdz2KmXLIrH9L1ezCoLGtvwJv7bL_vjEbTTlyAG8s2W37QwaB3pwTNF4icC3SYEaVJVc7v7C9n6jnI_chdjObVojm2Fknw1IRSVDuhcjiWrd4Ps4eXPZC-sJbhOo");'>
+</div>
+<div class="flex flex-1 flex-col justify-center min-w-0">
+<div class="flex justify-between items-start">
+<p class="text-[#111418] dark:text-white text-base font-bold leading-tight truncate pr-2">Torre Bellini, 4B</p>
+<span class="text-xs font-medium text-gray-500 dark:text-gray-400 whitespace-nowrap">2 jul</span>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal truncate mt-0.5">Cliente: Roberto Diaz</p>
+<div class="mt-1.5 flex items-center">
+<span class="bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                                    En Proceso
+                                </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="group active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="flex gap-4 px-4 py-3 justify-between items-center">
+<div class="flex items-center gap-4 w-full">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[60px] shrink-0 relative" data-alt="Suburban house with green lawn" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDjR7o2XiRWms1OfJNwxT9MRLddY9akDEXZef-hoNKbZU44HtVfwYmPPQfWBVK3gWTsxay6In9N7LXWvXlClFXCXbqGEGjQ-WrB-_tUAtNCCOWWIASP1tSYLqJuPjmCjSxwQ0idB1PssvgxWhKJa85CeSacTAaNj3yizXyZjjrUtiWjaTmf81252I6fh0vyBigpZaxdyxo2DYZp3Z_ZXh7WodJPvpOVaryEJPcKb4BF_Z_zYKrV-5zN3JC9BPO26h-u9HTOFt-iSHQ");'>
+</div>
+<div class="flex flex-1 flex-col justify-center min-w-0">
+<div class="flex justify-between items-start">
+<p class="text-[#111418] dark:text-white text-base font-bold leading-tight truncate pr-2">Barrio Norte, Lote 12</p>
+<span class="text-xs font-medium text-gray-500 dark:text-gray-400 whitespace-nowrap">30 jun</span>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal truncate mt-0.5">Cliente: Ana Torres</p>
+<div class="mt-1.5 flex items-center">
+<span class="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                                    Finalizada
+                                </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-[calc(5rem+env(safe-area-inset-bottom))] right-4 z-20">
+<button class="flex items-center justify-center size-14 rounded-full bg-primary text-white shadow-lg shadow-blue-500/40 hover:bg-blue-600 transition-all active:scale-95">
+<span class="material-symbols-outlined text-[32px]">add</span>
+</button>
+</div>
+<nav class="fixed bottom-0 w-full z-20 bg-white dark:bg-[#1A2633] border-t border-gray-100 dark:border-gray-800 pb-[env(safe-area-inset-bottom)]">
+<div class="flex justify-around items-center h-16">
+<button class="flex flex-col items-center justify-center w-full h-full gap-1">
+<span class="material-symbols-outlined text-primary text-[24px]">dashboard</span>
+<span class="text-[10px] font-bold text-primary">Inicio</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full gap-1 group">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors text-[24px]">real_estate_agent</span>
+<span class="text-[10px] font-medium text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300">Tasaciones</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full gap-1 group">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors text-[24px]">group</span>
+<span class="text-[10px] font-medium text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300">Clientes</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full gap-1 group">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors text-[24px]">settings</span>
+<span class="text-[10px] font-medium text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300">Ajustes</span>
+</button>
+</div>
+</nav>
+</div>
+
+</body></html>
