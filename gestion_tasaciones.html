@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gestión de Tasaciones</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+              "card-light": "#ffffff",
+              "card-dark": "#1a2634",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Hide scrollbar for horizontal scroll areas but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-white antialiased transition-colors duration-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden pb-24">
+<!-- Top App Bar (Sticky) -->
+<header class="sticky top-0 z-20 flex items-center justify-between bg-card-light/95 dark:bg-card-dark/95 backdrop-blur-sm px-4 py-3 shadow-sm border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-800 dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<h1 class="text-lg font-bold leading-tight tracking-tight text-center flex-1">Gestión de Tasaciones</h1>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-800 dark:text-white">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</header>
+<!-- Search Bar Area -->
+<div class="bg-card-light dark:bg-card-dark px-4 py-3">
+<div class="relative flex items-center w-full h-12 rounded-xl focus-within:shadow-md bg-gray-100 dark:bg-gray-800 overflow-hidden transition-all duration-200">
+<div class="grid place-items-center h-full w-12 text-gray-500">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="peer h-full w-full outline-none text-sm text-gray-700 dark:text-gray-200 pr-2 bg-transparent placeholder-gray-500 font-medium" id="search" placeholder="Buscar por cliente, propiedad o ID..." type="text"/>
+</div>
+</div>
+<!-- Filter Pills (Scrollable) -->
+<div class="bg-card-light dark:bg-card-dark w-full px-4 pb-4">
+<div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
+<button class="whitespace-nowrap rounded-full bg-primary px-4 py-2 text-sm font-bold text-white shadow-sm ring-1 ring-inset ring-primary">
+                    Todas
+                </button>
+<button class="whitespace-nowrap rounded-full bg-gray-100 dark:bg-gray-800 px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-300 ring-1 ring-inset ring-gray-200 dark:ring-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    En Proceso
+                </button>
+<button class="whitespace-nowrap rounded-full bg-gray-100 dark:bg-gray-800 px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-300 ring-1 ring-inset ring-gray-200 dark:ring-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    Finalizadas
+                </button>
+<button class="whitespace-nowrap rounded-full bg-gray-100 dark:bg-gray-800 px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-300 ring-1 ring-inset ring-gray-200 dark:ring-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    Borradores
+                </button>
+</div>
+</div>
+<!-- List Content -->
+<div class="flex flex-col gap-3 p-4">
+<!-- List Item 1: En Proceso -->
+<div class="group relative flex flex-col gap-3 rounded-xl bg-card-light dark:bg-card-dark p-3 shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary/30 transition-all cursor-pointer">
+<div class="flex gap-3">
+<!-- Image -->
+<div class="relative shrink-0 overflow-hidden rounded-lg w-20 h-20 bg-gray-200 dark:bg-gray-700">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Modern apartment building facade in Palermo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBKoklqSGwKq01nUt8Ft-zF5VRLaOyk8JqL_c211Ecg_FI-VB4rHkMnUmhZ6rrcTzomya4FoZzytRK1mlp71oBV-vDoT97PTy8Crm8qBS_JBLs1RYrglC2T6Er4UrMVt6fzuHnqMTX5eWKilhcdwH2Wz5zX97_hsMEVst7lmnf_OAh58-eEP0-bWFNktn1YlHvA6T2nvA4b5usNa40gZu-PPCF6RAt_OwUPr1G-jmyodbX7cp4UrnKcBgFxWQbL2raSbtar0S1IqjE");'></div>
+</div>
+<!-- Content -->
+<div class="flex flex-1 flex-col justify-between py-0.5">
+<div class="flex justify-between items-start gap-2">
+<h3 class="font-bold text-[#111418] dark:text-white text-base leading-tight line-clamp-2">Depto 3 Ambientes - Palermo</h3>
+<button class="text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 -mr-2 -mt-2 p-2">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-gray-500 dark:text-gray-400 text-xs font-medium truncate">
+<span class="material-symbols-outlined text-[14px] align-text-bottom mr-1">person</span>Juan Pérez
+                            </p>
+<div class="flex items-center justify-between mt-1">
+<span class="inline-flex items-center rounded-md bg-blue-50 dark:bg-blue-900/30 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-300 ring-1 ring-inset ring-blue-700/10">
+                                    En Proceso
+                                </span>
+<span class="text-xs text-gray-400 dark:text-gray-500">12 Oct 23</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- List Item 2: Finalizada -->
+<div class="group relative flex flex-col gap-3 rounded-xl bg-card-light dark:bg-card-dark p-3 shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary/30 transition-all cursor-pointer">
+<div class="flex gap-3">
+<div class="relative shrink-0 overflow-hidden rounded-lg w-20 h-20 bg-gray-200 dark:bg-gray-700">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Country house exterior with garden in Pilar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBmiw0Mpd7NhDJXz8Hp4_cHJSSxOpA0TmsWCj7-4PdmqRLFn-tYWRYtUv0vV4x9TA6CepcbzpmpvI7HfSi0mM0zxxrYESkNeGkXF9yxzojNlL3NfhOphAPq5vKE_jqRidnHMPE8EGpT8cz5TdFCc4zEQfds1rPdczIRvRx9L6ZKPg2F9LkAqUedvQMg63IAlqPtnfDbvomIvUxf3TeIU6-XHhsNFUhY_F-8CpajgcLkpEi81zLWd-QYmklpbFYkqMutt22wOkkVs9M");'></div>
+</div>
+<div class="flex flex-1 flex-col justify-between py-0.5">
+<div class="flex justify-between items-start gap-2">
+<h3 class="font-bold text-[#111418] dark:text-white text-base leading-tight line-clamp-2">Casa Quinta - Pilar del Este</h3>
+<button class="text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 -mr-2 -mt-2 p-2">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-gray-500 dark:text-gray-400 text-xs font-medium truncate">
+<span class="material-symbols-outlined text-[14px] align-text-bottom mr-1">person</span>Maria Gonzalez
+                            </p>
+<div class="flex items-center justify-between mt-1">
+<span class="inline-flex items-center rounded-md bg-green-50 dark:bg-green-900/30 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-300 ring-1 ring-inset ring-green-600/20">
+                                    Finalizada
+                                </span>
+<span class="text-xs text-gray-400 dark:text-gray-500">10 Oct 23</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- List Item 3: Borrador -->
+<div class="group relative flex flex-col gap-3 rounded-xl bg-card-light dark:bg-card-dark p-3 shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary/30 transition-all cursor-pointer">
+<div class="flex gap-3">
+<div class="relative shrink-0 overflow-hidden rounded-lg w-20 h-20 bg-gray-200 dark:bg-gray-700">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110 opacity-80" data-alt="Office building interior view in Microcentro" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA8mL0MGLz9oRVnqtRKWZMIMm9kVJfGSJd4BP4Zz-62PMjh8mEpArqm--QTtc_sE1rkzq_qMq0_RW9XHngGpy2TWH640vAcYLRBGoxcA0RkCSGFxn3ehEuw4FYwUhtdZB18JnCHvlACBIEpbkwgGgB09WQTIKCiTkOEUyKZdVltSjaZrhzgw-VBt7hhWQxJqWD2lNBxS1ru5pMshm5kMJa1I2pBZSD9vsPxgHduYtTpY2zrdxCH8wkz1x5O4oZRywiYx74ItWpRbH0");'></div>
+</div>
+<div class="flex flex-1 flex-col justify-between py-0.5">
+<div class="flex justify-between items-start gap-2">
+<h3 class="font-bold text-[#111418] dark:text-white text-base leading-tight line-clamp-2">Oficina Centro - Microcentro</h3>
+<button class="text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 -mr-2 -mt-2 p-2">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-gray-500 dark:text-gray-400 text-xs font-medium truncate">
+<span class="material-symbols-outlined text-[14px] align-text-bottom mr-1">domain</span>Empresa SA
+                            </p>
+<div class="flex items-center justify-between mt-1">
+<span class="inline-flex items-center rounded-md bg-gray-100 dark:bg-gray-700 px-2 py-1 text-xs font-medium text-gray-600 dark:text-gray-300 ring-1 ring-inset ring-gray-500/10">
+                                    Borrador
+                                </span>
+<span class="text-xs text-gray-400 dark:text-gray-500">05 Oct 23</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- List Item 4: En Proceso -->
+<div class="group relative flex flex-col gap-3 rounded-xl bg-card-light dark:bg-card-dark p-3 shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary/30 transition-all cursor-pointer">
+<div class="flex gap-3">
+<div class="relative shrink-0 overflow-hidden rounded-lg w-20 h-20 bg-gray-200 dark:bg-gray-700">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Suburban PH house exterior in Villa Urquiza" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCnZfipSunfqXkkb6hxR8W3X9rdcNhiN_5YKzw9VcXDSri1NhL9IlbrJYEzlTYnTbvi7cYzXU_viDAvI-VzyEGn46d7WNj3gb-ejawTTUqa6QY6fi2PZ_N8-QJ06iXY7eBBHm-_hHMOwy5_WIIformzyN8QPJ8EMgi61gF6uXJI4i11RAHnYn4UpmVON_ZC2CQDbc6B0HOoc0BILk8kg6WguiJKPvB6YGfaP81UpPHEZzNqSdDpSlcwcE4sZi5v99uhfAYOhFPH3Pw");'></div>
+</div>
+<div class="flex flex-1 flex-col justify-between py-0.5">
+<div class="flex justify-between items-start gap-2">
+<h3 class="font-bold text-[#111418] dark:text-white text-base leading-tight line-clamp-2">PH 4 Ambientes - Villa Urquiza</h3>
+<button class="text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 -mr-2 -mt-2 p-2">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-gray-500 dark:text-gray-400 text-xs font-medium truncate">
+<span class="material-symbols-outlined text-[14px] align-text-bottom mr-1">person</span>Roberto Mendez
+                            </p>
+<div class="flex items-center justify-between mt-1">
+<span class="inline-flex items-center rounded-md bg-blue-50 dark:bg-blue-900/30 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-300 ring-1 ring-inset ring-blue-700/10">
+                                    En Proceso
+                                </span>
+<span class="text-xs text-gray-400 dark:text-gray-500">02 Oct 23</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- List Item 5: Finalizada -->
+<div class="group relative flex flex-col gap-3 rounded-xl bg-card-light dark:bg-card-dark p-3 shadow-sm border border-gray-100 dark:border-gray-800 hover:border-primary/30 transition-all cursor-pointer">
+<div class="flex gap-3">
+<div class="relative shrink-0 overflow-hidden rounded-lg w-20 h-20 bg-gray-200 dark:bg-gray-700">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Commercial store front in busy street" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDX88zOBiCmE0DavTmyY1uQOyyb-HOBO8E6zaI9ZH0_zkRxh3yPxeEmH9ZuYBpMin2VrVO-Bu08Pct1NTHiPz1FhiR5IwH5kPZGR4-DJ2nKWA2vc1uJbvtGGlf_alfemspwckpCL-7v2qevy5zGFzz0gqgBq3DoQhcTKBdJcuosoQdTvOEItujhO90LITLezaRYSmTweqMw_0jkrAd-m7zdktKyQTlwwagr_krlx6RgrF1V-bQ6B-BA5QmK7Ok64Ktki7guMvxMzpQ");'></div>
+</div>
+<div class="flex flex-1 flex-col justify-between py-0.5">
+<div class="flex justify-between items-start gap-2">
+<h3 class="font-bold text-[#111418] dark:text-white text-base leading-tight line-clamp-2">Local Comercial - Av. Santa Fe</h3>
+<button class="text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 -mr-2 -mt-2 p-2">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-gray-500 dark:text-gray-400 text-xs font-medium truncate">
+<span class="material-symbols-outlined text-[14px] align-text-bottom mr-1">domain</span>Inversiones Globales
+                            </p>
+<div class="flex items-center justify-between mt-1">
+<span class="inline-flex items-center rounded-md bg-green-50 dark:bg-green-900/30 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-300 ring-1 ring-inset ring-green-600/20">
+                                    Finalizada
+                                </span>
+<span class="text-xs text-gray-400 dark:text-gray-500">28 Sep 23</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty space for FAB scrolling -->
+<div class="h-16"></div>
+</div>
+<!-- Floating Action Button (FAB) -->
+<button class="fixed bottom-6 right-4 z-30 flex h-14 items-center gap-2 rounded-full bg-primary pl-4 pr-6 shadow-xl shadow-blue-500/30 transition-all hover:scale-105 active:scale-95 text-white">
+<span class="material-symbols-outlined text-2xl">add</span>
+<span class="text-base font-bold">Nueva Tasación</span>
+</button>
+</div>
+</body></html>
