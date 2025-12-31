@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Selección de Cliente</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1c2630",
+                        "input-light": "#f0f2f4",
+                        "input-dark": "#26323f",
+                        "border-light": "#dbe0e6",
+                        "border-dark": "#364553",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for cleaner mobile look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-[#111418] dark:text-white overflow-hidden">
+<div class="relative flex h-full max-h-screen min-h-screen w-full flex-col group/tabs mx-auto max-w-md bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden">
+<!-- Logic Inputs for Tabs (Hidden) -->
+<input checked="" class="peer/exist hidden" id="tab-exist" name="client_tabs" type="radio"/>
+<input class="peer/new hidden" id="tab-new" name="client_tabs" type="radio"/>
+<!-- Header -->
+<header class="flex items-center justify-between px-4 py-3 bg-surface-light dark:bg-surface-dark border-b border-border-light dark:border-border-dark shrink-0 z-20">
+<h2 class="text-lg font-bold leading-tight tracking-tight">Nueva Tasación</h2>
+<button class="flex items-center justify-center text-[#617589] dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors">
+<span class="text-base font-bold">Cancelar</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto no-scrollbar pb-24 relative">
+<!-- Tab Navigation (Segmented Control) -->
+<div class="px-4 py-4 sticky top-0 bg-background-light dark:bg-background-dark z-10 backdrop-blur-sm bg-opacity-90 dark:bg-opacity-90">
+<div class="flex h-10 w-full items-center rounded-lg bg-input-light dark:bg-input-dark p-1 border border-transparent dark:border-border-dark">
+<label class="flex flex-1 cursor-pointer h-full items-center justify-center rounded-md text-sm font-bold transition-all duration-200 select-none text-[#617589] dark:text-gray-400 group-has-[#tab-exist:checked]/tabs:bg-white dark:group-has-[#tab-exist:checked]/tabs:bg-surface-dark group-has-[#tab-exist:checked]/tabs:text-primary dark:group-has-[#tab-exist:checked]/tabs:text-primary group-has-[#tab-exist:checked]/tabs:shadow-sm" for="tab-exist">
+                        Seleccionar Existente
+                    </label>
+<label class="flex flex-1 cursor-pointer h-full items-center justify-center rounded-md text-sm font-bold transition-all duration-200 select-none text-[#617589] dark:text-gray-400 group-has-[#tab-new:checked]/tabs:bg-white dark:group-has-[#tab-new:checked]/tabs:bg-surface-dark group-has-[#tab-new:checked]/tabs:text-primary dark:group-has-[#tab-new:checked]/tabs:text-primary group-has-[#tab-new:checked]/tabs:shadow-sm" for="tab-new">
+                        Crear Nuevo
+                    </label>
+</div>
+</div>
+<!-- View: Select Existing Client -->
+<div class="hidden group-has-[#tab-exist:checked]/tabs:block px-4 animate-fade-in">
+<!-- Search Bar -->
+<div class="mb-4">
+<label class="flex flex-col h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-sm bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary transition-all">
+<div class="flex items-center justify-center pl-4 pr-2">
+<span class="material-symbols-outlined text-[#617589] dark:text-gray-400 text-[22px]">search</span>
+</div>
+<input class="flex w-full min-w-0 flex-1 bg-transparent border-none text-base font-medium placeholder:text-[#9aa6b2] dark:placeholder:text-gray-500 text-[#111418] dark:text-white focus:outline-none focus:ring-0 h-full px-1" placeholder="Buscar por nombre o empresa" value=""/>
+<div class="flex items-center justify-center pr-4 pl-2" style="display: none;"> <!-- Clear button could go here -->
+<span class="material-symbols-outlined text-[#617589] text-[20px] cursor-pointer">cancel</span>
+</div>
+</div>
+</label>
+</div>
+<!-- Client List -->
+<div class="flex flex-col gap-3 pb-4">
+<p class="text-xs font-bold text-[#617589] dark:text-gray-500 uppercase tracking-wider px-1">Resultados recientes</p>
+<!-- Client Item 1 -->
+<label class="group flex items-center gap-4 rounded-xl border border-transparent bg-surface-light dark:bg-surface-dark p-4 shadow-sm hover:border-primary/30 dark:hover:border-primary/50 cursor-pointer transition-all">
+<input checked="" class="peer sr-only" name="selected_client" type="radio"/>
+<div class="h-10 w-10 shrink-0 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary font-bold">JP</div>
+<div class="flex grow flex-col overflow-hidden">
+<p class="text-[#111418] dark:text-white text-base font-bold truncate">Juan Pérez</p>
+<p class="text-[#617589] dark:text-gray-400 text-sm font-medium truncate">+54 11 1234 5678</p>
+</div>
+<div class="h-6 w-6 rounded-full border-2 border-border-light dark:border-gray-600 peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center transition-all">
+<span class="material-symbols-outlined text-white text-[16px] opacity-0 peer-checked:opacity-100 font-bold">check</span>
+</div>
+</label>
+<!-- Client Item 2 -->
+<label class="group flex items-center gap-4 rounded-xl border border-transparent bg-surface-light dark:bg-surface-dark p-4 shadow-sm hover:border-primary/30 dark:hover:border-primary/50 cursor-pointer transition-all">
+<input class="peer sr-only" name="selected_client" type="radio"/>
+<div class="h-10 w-10 shrink-0 rounded-full bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center text-purple-600 font-bold">IS</div>
+<div class="flex grow flex-col overflow-hidden">
+<p class="text-[#111418] dark:text-white text-base font-bold truncate">Inmobiliaria del Sur</p>
+<p class="text-[#617589] dark:text-gray-400 text-sm font-medium truncate">contacto@inmosur.com</p>
+</div>
+<div class="h-6 w-6 rounded-full border-2 border-border-light dark:border-gray-600 peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center transition-all">
+<span class="material-symbols-outlined text-white text-[16px] opacity-0 peer-checked:opacity-100 font-bold">check</span>
+</div>
+</label>
+<!-- Client Item 3 -->
+<label class="group flex items-center gap-4 rounded-xl border border-transparent bg-surface-light dark:bg-surface-dark p-4 shadow-sm hover:border-primary/30 dark:hover:border-primary/50 cursor-pointer transition-all">
+<input class="peer sr-only" name="selected_client" type="radio"/>
+<div class="h-10 w-10 shrink-0 rounded-full bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center text-emerald-600 font-bold">CN</div>
+<div class="flex grow flex-col overflow-hidden">
+<p class="text-[#111418] dark:text-white text-base font-bold truncate">Constructora Norte S.A.</p>
+<p class="text-[#617589] dark:text-gray-400 text-sm font-medium truncate">admin@cnorte.com.ar</p>
+</div>
+<div class="h-6 w-6 rounded-full border-2 border-border-light dark:border-gray-600 peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center transition-all">
+<span class="material-symbols-outlined text-white text-[16px] opacity-0 peer-checked:opacity-100 font-bold">check</span>
+</div>
+</label>
+<!-- Client Item 4 -->
+<label class="group flex items-center gap-4 rounded-xl border border-transparent bg-surface-light dark:bg-surface-dark p-4 shadow-sm hover:border-primary/30 dark:hover:border-primary/50 cursor-pointer transition-all">
+<input class="peer sr-only" name="selected_client" type="radio"/>
+<div class="h-10 w-10 shrink-0 rounded-full bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-orange-600 font-bold">MG</div>
+<div class="flex grow flex-col overflow-hidden">
+<p class="text-[#111418] dark:text-white text-base font-bold truncate">María González</p>
+<p class="text-[#617589] dark:text-gray-400 text-sm font-medium truncate">+54 11 9988 7766</p>
+</div>
+<div class="h-6 w-6 rounded-full border-2 border-border-light dark:border-gray-600 peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center transition-all">
+<span class="material-symbols-outlined text-white text-[16px] opacity-0 peer-checked:opacity-100 font-bold">check</span>
+</div>
+</label>
+</div>
+</div>
+<!-- View: Create New Client -->
+<div class="hidden group-has-[#tab-new:checked]/tabs:block px-4 animate-fade-in">
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl p-5 shadow-sm border border-transparent dark:border-border-dark flex flex-col gap-5">
+<div class="flex items-center gap-3 text-primary mb-1">
+<div class="p-2 bg-primary/10 rounded-full">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+</div>
+<h3 class="text-base font-bold text-[#111418] dark:text-white">Datos del Cliente</h3>
+</div>
+<!-- Name Field -->
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-bold text-[#111418] dark:text-gray-200">Nombre / Razón Social <span class="text-red-500">*</span></label>
+<input class="w-full rounded-lg border border-border-light dark:border-border-dark bg-input-light dark:bg-input-dark text-[#111418] dark:text-white h-12 px-4 text-base placeholder:text-[#617589] dark:placeholder:text-gray-500 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="Ej. Juan Pérez S.A."/>
+</div>
+<!-- Phone Field -->
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-bold text-[#111418] dark:text-gray-200">Teléfono (Opcional)</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#617589] dark:text-gray-400">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</div>
+<input class="w-full rounded-lg border border-border-light dark:border-border-dark bg-input-light dark:bg-input-dark text-[#111418] dark:text-white h-12 pl-10 pr-4 text-base placeholder:text-[#617589] dark:placeholder:text-gray-500 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="+54 11 ..." type="tel"/>
+</div>
+</div>
+<!-- Email Field -->
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-bold text-[#111418] dark:text-gray-200">Email (Opcional)</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#617589] dark:text-gray-400">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+<input class="w-full rounded-lg border border-border-light dark:border-border-dark bg-input-light dark:bg-input-dark text-[#111418] dark:text-white h-12 pl-10 pr-4 text-base placeholder:text-[#617589] dark:placeholder:text-gray-500 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="cliente@ejemplo.com" type="email"/>
+</div>
+</div>
+<div class="pt-2">
+<button class="w-full h-12 bg-primary/10 hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30 text-primary rounded-lg font-bold text-sm transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">save</span>
+                            Guardar Nuevo Cliente
+                         </button>
+</div>
+</div>
+<p class="text-xs text-center text-[#617589] dark:text-gray-500 mt-6 px-4">
+                    Al guardar, el cliente se asociará automáticamente a la tasación actual.
+                </p>
+</div>
+</main>
+<!-- Fixed Bottom Action Bar -->
+<div class="shrink-0 p-4 bg-surface-light dark:bg-surface-dark border-t border-border-light dark:border-border-dark z-20">
+<button class="w-full h-12 bg-primary hover:bg-blue-600 text-white rounded-lg text-base font-bold shadow-lg shadow-primary/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2 group-has-[#tab-new:checked]/tabs:opacity-50 group-has-[#tab-new:checked]/tabs:cursor-not-allowed">
+<span>Continuar</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</body></html>
