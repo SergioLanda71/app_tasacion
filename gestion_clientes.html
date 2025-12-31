@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gestión de Clientes</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+              "card-dark": "#1A2632",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>.hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-gray-100 dark:bg-black font-display antialiased">
+<div class="relative mx-auto flex h-full min-h-screen w-full max-w-[480px] flex-col bg-background-light dark:bg-background-dark shadow-2xl overflow-x-hidden">
+<div class="sticky top-0 z-20 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors">
+<div class="flex items-center justify-between px-4 py-3">
+<button class="group flex size-10 shrink-0 items-center justify-center rounded-full active:bg-gray-200 dark:active:bg-gray-700 transition-colors">
+<span class="material-symbols-outlined text-[#111418] dark:text-white" style="font-size: 24px;">arrow_back_ios_new</span>
+</button>
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Clientes</h2>
+<button class="flex size-10 items-center justify-center rounded-full text-primary font-bold hover:bg-primary/10 transition-colors">
+<span class="text-sm">Editar</span>
+</button>
+</div>
+<div class="px-4 pb-4">
+<label class="flex flex-col h-11 w-full shadow-sm">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full bg-white dark:bg-card-dark transition-colors">
+<div class="flex items-center justify-center pl-4 pr-2">
+<span class="material-symbols-outlined text-[#617589]" style="font-size: 20px;">search</span>
+</div>
+<input class="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl bg-transparent text-[#111418] dark:text-white focus:outline-0 placeholder:text-[#617589] px-2 text-base font-normal leading-normal border-none focus:ring-0" placeholder="Nombre, teléfono o email..." value=""/>
+</div>
+</label>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-4 p-4 pt-2 pb-24">
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center gap-3 bg-white dark:bg-card-dark p-3 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm active:scale-[0.98] transition-all">
+<div class="flex items-center justify-center size-10 rounded-full bg-blue-50 dark:bg-blue-900/30 text-primary shrink-0">
+<span class="material-symbols-outlined" style="font-size: 20px;">upload_file</span>
+</div>
+<div class="flex flex-col items-start min-w-0">
+<span class="text-sm font-bold text-[#111418] dark:text-white truncate w-full text-left">Importar</span>
+<span class="text-[10px] font-medium text-[#617589] truncate w-full text-left">CSV / Excel</span>
+</div>
+</button>
+<button class="flex items-center gap-3 bg-white dark:bg-card-dark p-3 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm active:scale-[0.98] transition-all">
+<div class="flex items-center justify-center size-10 rounded-full bg-blue-50 dark:bg-blue-900/30 text-primary shrink-0">
+<span class="material-symbols-outlined" style="font-size: 20px;">download</span>
+</div>
+<div class="flex flex-col items-start min-w-0">
+<span class="text-sm font-bold text-[#111418] dark:text-white truncate w-full text-left">Exportar</span>
+<span class="text-[10px] font-medium text-[#617589] truncate w-full text-left">Lista completa</span>
+</div>
+</button>
+</div>
+<div class="flex items-center justify-between mt-2">
+<p class="text-[#617589] text-xs font-bold uppercase tracking-wider">Recientes</p>
+<button class="text-primary text-xs font-bold">Ver todo</button>
+</div>
+<div class="flex flex-col gap-3 bg-white dark:bg-card-dark p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 transition-colors">
+<div class="flex justify-between items-start gap-3">
+<div class="flex items-start gap-3 flex-1">
+<div class="relative shrink-0">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-12 w-12 border-2 border-white dark:border-gray-700 shadow-sm" data-alt="Portrait of Juan Pérez smiling in a suit" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCVuKCqsP7EuKXl5fH-re2eSYr5aL_n54q6JBxT7kuGk9C9_BDrHj34mMKcJz3pG-gIdMu9vaqBvINfBZsVJI8VNkenaOd7xgmOD3SEVMIMYPu-4CrOtrrgtiFRbjb2hSoRooKW1O8M69FrBStSrWMScSkg5A6wQOOVS2MJtBWBSc_iK8CXK6WqJcD3VajG9iTA5FAvfIqcgM379bsq-8RQBrGXrV5p0c-Z5CMceDHNq-og4yTeGc-NtS6Nn5ekquayhs8UsoTBtDg");'>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-green-500 rounded-full p-0.5 border-2 border-white dark:border-card-dark">
+<span class="material-symbols-outlined text-white block" style="font-size: 10px;">check</span>
+</div>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<h3 class="text-[#111418] dark:text-white text-base font-bold leading-tight truncate">Juan Pérez</h3>
+<p class="text-[#617589] text-sm font-medium truncate">Inversor Residencial</p>
+<div class="flex items-center gap-3 mt-2">
+<div class="flex items-center gap-1.5 text-xs text-[#617589] bg-gray-50 dark:bg-gray-800 px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-primary" style="font-size: 14px;">call</span>
+<span>+54 11 1234...</span>
+</div>
+<div class="flex items-center gap-1.5 text-xs text-[#617589] bg-gray-50 dark:bg-gray-800 px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-primary" style="font-size: 14px;">mail</span>
+<span class="truncate max-w-[80px]">juan@ex...</span>
+</div>
+</div>
+</div>
+</div>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
+<span class="material-symbols-outlined" style="font-size: 24px;">more_vert</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-3 bg-white dark:bg-card-dark p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 transition-colors">
+<div class="flex justify-between items-start gap-3">
+<div class="flex items-start gap-3 flex-1">
+<div class="flex items-center justify-center rounded-full h-12 w-12 bg-primary/10 text-primary font-bold text-lg border-2 border-white dark:border-gray-700 shadow-sm shrink-0">
+                            IN
+                        </div>
+<div class="flex flex-col flex-1 min-w-0">
+<h3 class="text-[#111418] dark:text-white text-base font-bold leading-tight truncate">Inmobiliaria Norte</h3>
+<p class="text-[#617589] text-sm font-medium truncate">Partner Comercial</p>
+<div class="flex items-center gap-3 mt-2">
+<a class="flex items-center justify-center h-8 w-8 rounded-full bg-primary/10 hover:bg-primary/20 text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-size: 18px;">call</span>
+</a>
+<a class="flex items-center justify-center h-8 w-8 rounded-full bg-primary/10 hover:bg-primary/20 text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-size: 18px;">mail</span>
+</a>
+<a class="flex items-center justify-center h-8 w-8 rounded-full bg-primary/10 hover:bg-primary/20 text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-size: 18px;">chat</span>
+</a>
+</div>
+</div>
+</div>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
+<span class="material-symbols-outlined" style="font-size: 24px;">more_vert</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-3 bg-white dark:bg-card-dark p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 transition-colors">
+<div class="flex justify-between items-start gap-3">
+<div class="flex items-start gap-3 flex-1">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-12 w-12 border-2 border-white dark:border-gray-700 shadow-sm shrink-0" data-alt="Portrait of Maria Rodriguez business professional" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuADepg-o7nG3NUKjQjhc9AOeak_Z27joT8-MWnbb-l37kJb8xB9bME1KgsZR8FMfUVyZIB5N5NpKDm5mNiJQmE7Zg2P6qRDsskW2CZ4Y9rhRTsX5RHl_mMuiDm_dbHVrNpwPMcUvU9Xf3VOdeaq5am8KG3WFRTCa4bFtG5J3GVcxftXD_QGzR6dbJn8NF41WAgaxF0k6DIEuwSwJlwKx8X6dJznmMt-JyCR92HAcnM03ki65JzCxY0BWK0tJ5mm57U8cSVMemWNuV0");'>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<h3 class="text-[#111418] dark:text-white text-base font-bold leading-tight truncate">María Rodríguez</h3>
+<p class="text-[#617589] text-sm font-medium truncate">Vendedora (En proceso)</p>
+<div class="flex flex-col gap-1 mt-2">
+<div class="flex items-center gap-2 text-sm text-[#617589]">
+<span class="material-symbols-outlined text-[16px]">call</span>
+<span class="text-xs">+54 9 11 1122 3344</span>
+</div>
+<div class="flex items-center gap-2 text-sm text-[#617589]">
+<span class="material-symbols-outlined text-[16px]">alternate_email</span>
+<span class="text-xs">maria.rod@email.com</span>
+</div>
+</div>
+</div>
+</div>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
+<span class="material-symbols-outlined" style="font-size: 24px;">more_vert</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-3 bg-white dark:bg-card-dark p-4 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 transition-colors opacity-80">
+<div class="flex justify-between items-start gap-3">
+<div class="flex items-start gap-3 flex-1">
+<div class="flex items-center justify-center rounded-full h-12 w-12 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 font-bold text-lg border-2 border-white dark:border-gray-700 shadow-sm shrink-0">
+                            LC
+                        </div>
+<div class="flex flex-col flex-1 min-w-0">
+<h3 class="text-[#111418] dark:text-white text-base font-bold leading-tight truncate">Lucas Castillo</h3>
+<p class="text-[#617589] text-sm font-medium truncate">Interesado (Tasación)</p>
+<div class="flex items-center gap-3 mt-2">
+<div class="flex items-center gap-1.5 text-xs text-[#617589] bg-gray-50 dark:bg-gray-800 px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-primary" style="font-size: 14px;">call</span>
+<span>+54 11 9988...</span>
+</div>
+</div>
+</div>
+</div>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
+<span class="material-symbols-outlined" style="font-size: 24px;">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<div class="fixed bottom-6 right-6 z-30 lg:absolute">
+<button class="flex items-center justify-center size-14 rounded-full bg-primary text-white shadow-lg shadow-primary/40 hover:bg-primary/90 hover:scale-105 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined" style="font-size: 28px;">add</span>
+</button>
+</div>
+<div class="sticky bottom-0 z-20 bg-white dark:bg-card-dark border-t border-gray-200 dark:border-gray-800 px-4 pb-5 pt-3 flex justify-around items-center text-[#617589] text-xs font-medium">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 24px;">home</span>
+<span>Inicio</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined fill-1" style="font-size: 24px; font-variation-settings: 'FILL' 1;">groups</span>
+<span>Clientes</span>
+</div>
+<div class="flex flex-col items-center gap-1 relative">
+<div class="absolute top-0 right-1 w-2 h-2 bg-red-500 rounded-full border border-white dark:border-card-dark"></div>
+<span class="material-symbols-outlined" style="font-size: 24px;">notifications</span>
+<span>Alertas</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 24px;">settings</span>
+<span>Ajustes</span>
+</div>
+</div>
+</div>
+
+</body></html>
