@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inicio de Sesión - Tasación Inmobiliaria</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "primary-dark": "#0f67c2",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    boxShadow: {
+                        "soft": "0 2px 8px 0 rgba(0,0,0,0.04), 0 1px 2px 0 rgba(0,0,0,0.02)",
+                        "input": "0 1px 2px 0 rgba(0,0,0,0.05)",
+                        "glow": "0 0 0 4px rgba(19, 127, 236, 0.1)",
+                    },
+                    borderRadius: {
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {-webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-[100dvh] flex flex-col items-center justify-center p-4 sm:p-6 transition-colors duration-200">
+<div class="w-full max-w-md mx-auto flex flex-col gap-6">
+<div class="w-full">
+<div class="relative overflow-hidden rounded-2xl shadow-xl h-64 bg-slate-800 group">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDDULAdM_MqG6nk1ZZSeuRscoD14iAnpKg5rL6ZmyAfVH2F9UqN-ZsznAPrMXi_dULed3nwALFbIT1dkJ2G_EkkO3oqsKcBUjAw8_FHbUi3jozwRyGrAtgBP9zSx0WOyW6rMtMKEn9weLVm48r2dFspY5g64_hSmkPtHx5QBC_Dj1EZ7pi9ralxDfuYqvXjkcoese4vEjEXex9r4oFsBXxywwtYs61hWNo8WPVIEuGSecZpvGj1MhCArxKCLBe79o4CsylY_ECpq-Q");'>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-slate-900/20"></div>
+<div class="relative h-full flex flex-col justify-between p-6">
+<div class="flex items-center gap-3">
+<div class="bg-white/20 backdrop-blur-md border border-white/30 p-2 rounded-xl shadow-lg">
+<span class="material-symbols-outlined text-white text-2xl">real_estate_agent</span>
+</div>
+</div>
+<div>
+<p class="text-blue-300 font-bold text-xs uppercase tracking-widest mb-1">CRM Inmobiliario</p>
+<h1 class="text-white text-3xl font-bold leading-tight tracking-tight">Iniciar Sesión</h1>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full bg-transparent">
+<form class="flex flex-col gap-5" onsubmit="event.preventDefault()">
+<div class="space-y-1.5">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1">Correo electrónico</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 group-focus-within:text-primary transition-colors duration-200">mail</span>
+</div>
+<input class="block w-full pl-12 pr-4 h-14 bg-surface-light dark:bg-surface-dark border border-slate-300 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 shadow-input focus:outline-none focus:border-primary focus:shadow-glow transition-all duration-200" placeholder="agente@inmobiliaria.com" type="email" value=""/>
+</div>
+</div>
+<div class="space-y-1.5">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1">Contraseña</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 group-focus-within:text-primary transition-colors duration-200">lock</span>
+</div>
+<input class="block w-full pl-12 pr-12 h-14 bg-surface-light dark:bg-surface-dark border border-slate-300 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 shadow-input focus:outline-none focus:border-primary focus:shadow-glow transition-all duration-200" placeholder="••••••••" type="password" value=""/>
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center justify-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors cursor-pointer" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex justify-end">
+<a class="text-sm font-medium text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary transition-colors" href="#">
+                        ¿Olvidaste tu contraseña?
+                    </a>
+</div>
+<button class="group relative w-full flex justify-center items-center gap-2 h-14 bg-primary hover:bg-primary-dark text-white font-bold text-base rounded-xl shadow-lg shadow-blue-500/30 transition-all duration-200 active:scale-[0.98]" type="submit">
+<span>Ingresar</span>
+<span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<div class="pt-4 border-t border-slate-200 dark:border-slate-700/50 flex items-center justify-center gap-2">
+<span class="text-slate-500 dark:text-slate-400 text-sm">¿No tienes una cuenta?</span>
+<a class="text-primary hover:text-primary-dark font-bold text-sm transition-colors" href="#">Registrarse</a>
+</div>
+</form>
+</div>
+</div>
+
+</body></html>
