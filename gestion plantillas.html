@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gestión de Plantillas PDF</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2632",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>.scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }.scrollbar-hide {
+            -ms-overflow-style: none;scrollbar-width: none;}
+    </style>
+<style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+        .symbol-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-display overflow-x-hidden antialiased selection:bg-primary/30">
+<div class="relative min-h-screen flex flex-col max-w-md mx-auto bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden border-x border-gray-100 dark:border-gray-800">
+<header class="sticky top-0 z-30 flex items-center justify-between px-4 pt-6 pb-2 bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-sm border-b border-gray-100 dark:border-gray-800 transition-colors">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-200">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+<h1 class="text-lg font-bold leading-tight flex-1 text-center text-gray-900 dark:text-white">Plantillas de Informe</h1>
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-200">
+<span class="material-symbols-outlined text-2xl">tune</span>
+</button>
+</header>
+<div class="px-4 py-3 bg-background-light dark:bg-background-dark">
+<div class="relative flex w-full items-center">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-500">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="block w-full rounded-xl border-none bg-surface-light dark:bg-surface-dark py-3 pl-10 pr-4 text-sm text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-200 dark:ring-gray-700 placeholder:text-gray-500 focus:ring-2 focus:ring-primary focus:ring-inset transition-all" placeholder="Buscar plantilla..." type="text"/>
+</div>
+</div>
+<div class="px-4 pb-2">
+<div class="flex gap-2 overflow-x-auto scrollbar-hide py-1">
+<button class="flex h-9 shrink-0 items-center justify-center px-4 rounded-full bg-primary text-white shadow-md shadow-primary/20 transition-transform active:scale-95">
+<span class="text-sm font-bold">Todas</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center px-4 rounded-full bg-surface-light dark:bg-surface-dark text-gray-600 dark:text-gray-300 ring-1 ring-gray-200 dark:ring-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<span class="text-sm font-medium">Corporativo</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center px-4 rounded-full bg-surface-light dark:bg-surface-dark text-gray-600 dark:text-gray-300 ring-1 ring-gray-200 dark:ring-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<span class="text-sm font-medium">Residencial</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center px-4 rounded-full bg-surface-light dark:bg-surface-dark text-gray-600 dark:text-gray-300 ring-1 ring-gray-200 dark:ring-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<span class="text-sm font-medium">Lujo</span>
+</button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto px-4 pt-2 pb-48">
+<h2 class="text-sm font-bold text-gray-500 dark:text-gray-400 mb-3 uppercase tracking-wider text-xs px-1">Disponibles</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl p-2 shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow">
+<div class="relative w-full aspect-[1/1.41] bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden mb-2">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Corporate report document template preview with blue accents" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDTxM1Le5DZVjrX7FI35r7rK7uK_PzsowvnH5raFNBnv__4XQK9PlDs9EEwzziylqZqF8bOEtcyPtOCCkfAy8sy5XmexH49iHYdI31QEzKuEDO28xoqYY0LE1nHUDEwYJRASPiZeEP4VNyWAzCO_PCq-dlecclpOX_xncaF7UVEqugmo9JPQLRSyd8-VrGVPu4DpexzWtH4khsPfxgHJy90pbXHvtqbqbwyqS9ccC4q397mjKoeGdxnVMW8ADj4GFjvUEDdNCei5lk");'></div>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-white/90 dark:bg-black/60 backdrop-blur-sm border border-black/5">
+<span class="text-[10px] font-bold text-primary uppercase tracking-wide">Predeterminada</span>
+</div>
+</div>
+<div class="flex justify-between items-start px-1">
+<div class="flex-1 min-w-0 pr-1">
+<h3 class="text-sm font-bold text-gray-900 dark:text-white truncate">Informe Corporativo</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">A4 • 12 Oct</p>
+</div>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 -mr-1">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<div class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl p-2 shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow">
+<div class="relative w-full aspect-[1/1.41] bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden mb-2">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Modern minimalist residential appraisal layout with large image placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCfRirnvA3P2MHEkLT66DSwbl1MZYGAJ9Up3eZQ5-uFl2Z8Cts1lKMS3IhkMxZAUiUh-j1VeNa2Wed7cawyIDuEIWc-rQJ6-yKvj76cQ3mIcIBV-kajiya8OW5JcEgLJgy7fJ79nxhRr85RmQJu4f38C9MnfNKum657rg1BD-ki-hNw7KYVjZayLMNRvgVXu8DEW7nzdlCWqaQTdUvfoz6L2cC0_UToTM-GNtiZtAUMlVvzW0gylPgZsmzXP3A0-mLEOaHj46Kk9Mw");'></div>
+</div>
+<div class="flex justify-between items-start px-1">
+<div class="flex-1 min-w-0 pr-1">
+<h3 class="text-sm font-bold text-gray-900 dark:text-white truncate">Tasación Moderna</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Personalizada • 10 Oct</p>
+</div>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 -mr-1">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<div class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl p-2 shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow">
+<div class="relative w-full aspect-[1/1.41] bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden mb-2">
+<div class="absolute inset-0 bg-cover bg-center opacity-80" data-alt="Simple text based document layout with minimal graphics" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCA_OCyPJaAYqLscnVnHOiylPwq7UDPhY3u0KZoL0-wA69SGJGLGRpcpaJO8IR4XjW5-T0ESTpABPb5upITX67m2wPnEGMtj46smrmr7SAygMTnxa2KCdRUyT671G-RvjXwbcg6cjCdPhQgrfqPE33AOhwxTvy__0k2KYwhoePwzNhjwmPdimAfjrCrA4DAUFJ6fAbmqPjliM7T3mu1dpkzeGN65rXkzF61u5_BYRC7FjCEPG4uFOpq-EoBjNT0aywss66mcEJuyt4");'></div>
+</div>
+<div class="flex justify-between items-start px-1">
+<div class="flex-1 min-w-0 pr-1">
+<h3 class="text-sm font-bold text-gray-900 dark:text-white truncate">Ficha Simple</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Personalizada • 05 Oct</p>
+</div>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 -mr-1">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<div class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl p-2 shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow">
+<div class="relative w-full aspect-[1/1.41] bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden mb-2">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Luxury dark themed real estate report cover design" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAN4axrLz5OpXvXIW65X-4ToazR0XJAeE4H23-jv0tpT2hTXlTrupF-J8JD2SfKqtIWa-cYsyme6mEcq1wnZuEj6BVoeTZqW8f7_RnDowLryuMYPLtE17cBAMi6oPkMo79QV4l4keDUoW1NefSyqcVvPm79DofLfsz-hHxkgkW89rZR2smbemBSLR82yJU84uH6zQLC5bQ-v-rJ0pPAE3cvAtinLUgxvj-XithpOWZu1S477lPC2jouBSjmzbIsfanHME5aRmqeEbw");'></div>
+</div>
+<div class="flex justify-between items-start px-1">
+<div class="flex-1 min-w-0 pr-1">
+<h3 class="text-sm font-bold text-gray-900 dark:text-white truncate">Estilo Lujo</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Personalizada • 01 Oct</p>
+</div>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 -mr-1">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<div class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl p-2 shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-md transition-shadow opacity-75">
+<div class="relative w-full aspect-[1/1.41] bg-gray-50 dark:bg-gray-800/50 rounded-lg overflow-hidden mb-2 flex items-center justify-center border-2 border-dashed border-gray-200 dark:border-gray-700">
+<span class="material-symbols-outlined text-gray-300 dark:text-gray-600 text-4xl">draft</span>
+</div>
+<div class="flex justify-between items-start px-1">
+<div class="flex-1 min-w-0 pr-1">
+<h3 class="text-sm font-bold text-gray-900 dark:text-white truncate italic">Borrador #2</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Sin guardar • Hoy</p>
+</div>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 -mr-1">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-[72px] left-0 right-0 p-4 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark pt-8 z-20">
+<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white rounded-xl h-12 shadow-lg shadow-primary/30 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[24px]">add</span>
+<span class="text-base font-bold">Crear Nueva Plantilla</span>
+</button>
+</div>
+<nav class="absolute bottom-0 left-0 right-0 h-[72px] bg-surface-light dark:bg-surface-dark border-t border-gray-100 dark:border-gray-800 flex items-center justify-between px-6 z-30 pb-2">
+<button class="flex flex-col items-center justify-center gap-1 text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors w-16">
+<span class="material-symbols-outlined text-2xl">dashboard</span>
+<span class="text-[10px] font-medium">Inicio</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors w-16">
+<span class="material-symbols-outlined text-2xl">real_estate_agent</span>
+<span class="text-[10px] font-medium">Tasaciones</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 text-primary w-16">
+<span class="material-symbols-outlined text-2xl symbol-filled">description</span>
+<span class="text-[10px] font-medium font-bold">Plantillas</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors w-16">
+<span class="material-symbols-outlined text-2xl">person</span>
+<span class="text-[10px] font-medium">Perfil</span>
+</button>
+</nav>
+<div class="hidden absolute inset-0 bg-black/40 z-40">
+<div class="absolute bottom-0 left-0 right-0 bg-white dark:bg-[#1e293b] rounded-t-2xl p-4 animate-slide-up">
+<div class="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-4"></div>
+</div>
+</div>
+</div>
+
+</body></html>
