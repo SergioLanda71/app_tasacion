@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edición Visual de Plantilla PDF</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }.hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-white overflow-hidden selection:bg-primary/30">
+<div class="relative flex h-screen w-full flex-col overflow-hidden">
+<div class="flex items-center bg-white dark:bg-[#1a2634] p-4 pb-2 justify-between shadow-sm z-20">
+<div class="flex items-center gap-3">
+<button class="text-[#111418] dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Tasación Residencial</h2>
+<p class="text-xs text-[#617589] dark:text-slate-400 font-medium">Editando Plantilla Maestra</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex size-10 items-center justify-center text-[#617589] dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+<button class="flex h-9 px-4 items-center justify-center rounded-lg bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] shadow-md hover:bg-blue-600 transition-colors">
+                    Guardar
+                </button>
+</div>
+</div>
+<div class="flex items-center justify-between px-4 py-2 bg-slate-50 dark:bg-[#15202b] border-b border-slate-200 dark:border-slate-800 z-10">
+<div class="flex gap-1">
+<button class="p-2 text-slate-500 hover:text-slate-800 dark:hover:text-white rounded">
+<span class="material-symbols-outlined text-[20px]">undo</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-slate-800 dark:hover:text-white rounded">
+<span class="material-symbols-outlined text-[20px]">redo</span>
+</button>
+</div>
+<div class="flex gap-2 text-xs font-bold text-slate-500 uppercase tracking-wider">
+<span class="px-2 py-1 bg-white dark:bg-slate-700 rounded shadow-sm text-primary">A4</span>
+<span class="px-2 py-1 bg-white dark:bg-slate-700 rounded shadow-sm">Vertical</span>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto relative w-full bg-background-light dark:bg-background-dark p-4 pb-48">
+<div class="max-w-md mx-auto">
+<div class="flex justify-between items-center mb-3 px-1">
+<h3 class="text-slate-500 dark:text-slate-400 text-sm font-bold uppercase tracking-wider">Página 1: Portada</h3>
+<button class="text-primary text-xs font-bold hover:underline">Configurar Página</button>
+</div>
+<div class="bg-white relative shadow-lg rounded-sm overflow-hidden min-h-[600px] transition-all duration-300 ring-1 ring-slate-200 dark:ring-slate-700">
+<div class="relative group cursor-pointer hover:bg-slate-50 transition-colors border-b border-dashed border-transparent hover:border-primary/30">
+<div class="hidden group-hover:block absolute top-1 right-1 bg-slate-200 text-slate-600 rounded p-1 z-20">
+<span class="material-symbols-outlined text-[14px] block">edit</span>
+</div>
+<div class="bg-cover bg-center flex flex-col justify-end overflow-hidden bg-white min-h-[220px]" data-alt="Gradient overlay on header image showing property ambiance" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 25%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCUncMSgy3xzQo83YqQ_ioQLcHseol9fkVyM8jt36tG1s3Xw2p6zF5vGKUjiNHEBMdMh-24ScrBnMwVtmltnwE-bxi6YZ3sl4PYHOqeITx1YYvcWGM2q5cBGPmCZkZ880-kAnoFSxVViObzpvZpORz4uwsksXbay5ezV5u3_C14pGDtNBpfGef7oWFhYmyO-ADkwOrU-DDxcVYxp6698BryD3HXgxrYqCXFX7ydSD7vGZcqzR_slrR0Kt1CL1B9fJLPKvCeLFvzNYI");'>
+<div class="flex justify-center gap-2 p-5">
+<div class="size-1.5 rounded-full bg-white"></div>
+<div class="size-1.5 rounded-full bg-white opacity-50"></div>
+<div class="size-1.5 rounded-full bg-white opacity-50"></div>
+</div>
+</div>
+</div>
+<div class="relative group hover:bg-slate-50 transition-colors border-b border-dashed border-transparent hover:border-primary/30 cursor-pointer">
+<div class="hidden group-hover:block absolute top-1 right-1 bg-slate-200 text-slate-600 rounded p-1">
+<span class="material-symbols-outlined text-[14px] block">edit</span>
+</div>
+<h3 class="text-[#111418] tracking-light text-2xl font-bold leading-tight px-6 text-left pb-2 pt-6">
+                            Informe de Tasación
+                        </h3>
+<p class="text-[#617589] text-sm font-medium px-6 pb-4">Preparado para Cliente Confidencial</p>
+</div>
+<div class="relative group hover:bg-slate-50 transition-colors border-y border-dashed border-transparent hover:border-primary/30 p-4 cursor-pointer">
+<div class="hidden group-hover:block absolute top-2 right-2 bg-slate-200 text-slate-600 rounded p-1 z-10">
+<span class="material-symbols-outlined text-[14px] block">drag_pan</span>
+</div>
+<div class="flex items-stretch justify-between gap-4 rounded-lg bg-white border border-slate-100 p-4 shadow-sm pointer-events-none">
+<div class="flex flex-[2_2_0px] flex-col gap-4">
+<div class="flex flex-col gap-1">
+<p class="text-[#111418] text-base font-bold leading-tight">Detalles de Propiedad</p>
+<p class="text-[#617589] text-xs font-normal leading-normal">Av. Libertador 1234, Piso 5</p>
+</div>
+<div class="flex gap-2">
+<span class="bg-blue-50 text-blue-700 text-[10px] font-bold px-2 py-1 rounded">Venta</span>
+<span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2 py-1 rounded">120 m²</span>
+</div>
+</div>
+<div class="w-20 h-20 bg-center bg-no-repeat bg-cover rounded-lg shrink-0" data-alt="Thumbnail of modern apartment interior" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBDunKKDgkzYgKYDyiP_v60-i9ml9rKpCqKhO5qLufr96R-9m0xLaJICiWDnsvVy9dBxdHXFHsPLkZaODoJRk5fZklqkhrB2VMQ2gL7VsMGMlDcYX2aDV6huWUIwmV9BDNkr-t5FTSC9ZdIZw-PgJijHgW3J7VFpVCGXZ61L8BjfErk-ZtT6xZKUl1Vmj2FoJsXiNL5_7li8rybiz2K9MS-jx101g_bjbh4wYrpkqZKJ0I-A6xKvRywUJvPNh8PovcmlaPVFAaq26s");'></div>
+</div>
+</div>
+<div class="relative group hover:bg-slate-50 transition-colors border-b border-dashed border-transparent hover:border-primary/30 p-4 cursor-pointer">
+<div class="flex flex-col gap-2 pointer-events-none">
+<p class="text-[#111418] text-sm font-bold leading-tight pl-1">Ubicación Satelital</p>
+<div class="w-full h-32 bg-center bg-no-repeat bg-cover rounded-lg flex-1 relative overflow-hidden" data-alt="Satellite map view of city block" data-location="Buenos Aires" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD3IgKR7udopzCRfNEdIegaTI-UZd-1VmgF4zn4L3SiWcw4Uxj1kR6C6Mp-aWbRJbg4B97EFwwMfShKkxCELcopkGZh_SJ5GVcDW3cFCx0PfNcfnpIImatK1eIdlF66bxhec3IiAl_8zSq9jT5wOvhA9Eq0w9qRz6ConXw-YpnXQ_mkgY4qMQUC_chv3Oyk1vGaQLUEMphUOU3x0sW634O6rq3k7z80320qa7ZnI63CL7lLaTpjaqOraLMynVNmPOik6KoPfDe-6Jo");'>
+<div class="absolute inset-0 bg-black/10"></div>
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-500 drop-shadow-lg">
+<span class="material-symbols-outlined text-[32px] fill-current">location_on</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mx-4 my-2 border-2 border-dashed border-slate-200 rounded-lg h-24 flex flex-col items-center justify-center text-slate-400 gap-2 bg-slate-50">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="text-xs font-bold">Arrastrar nuevo elemento aquí</span>
+</div>
+</div>
+<div class="h-24"></div>
+</div>
+</div>
+<button class="fixed bottom-[80vh] right-6 size-14 bg-white dark:bg-slate-700 text-primary rounded-full shadow-lg flex items-center justify-center z-30 hover:scale-105 transition-transform ring-1 ring-slate-100 dark:ring-slate-600 opacity-0 pointer-events-none">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+<div class="fixed bottom-0 left-0 w-full bg-white dark:bg-[#1a2634] rounded-t-2xl shadow-[0_-8px_30px_rgba(0,0,0,0.12)] z-40 h-[80vh] flex flex-col transform transition-transform duration-300">
+<div class="w-full flex justify-center pt-3 pb-1 shrink-0 cursor-pointer">
+<div class="w-12 h-1.5 bg-slate-200 dark:bg-slate-600 rounded-full"></div>
+</div>
+<div class="px-5 pb-3 border-b border-slate-100 dark:border-slate-700 flex justify-between items-center shrink-0">
+<div>
+<h3 class="text-[#111418] dark:text-white font-bold text-lg">Elementos Disponibles</h3>
+<p class="text-xs text-[#617589] dark:text-slate-400">Arrastra elementos a tu diseño</p>
+</div>
+<button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-5 pb-10">
+<div class="relative mb-4">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-[20px]">search</span>
+<input class="w-full bg-slate-50 dark:bg-[#15202b] border border-slate-200 dark:border-slate-700 rounded-lg py-2.5 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none text-slate-800 dark:text-white placeholder:text-slate-400" placeholder="Buscar campo o bloque..." type="text"/>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-4 mb-2 hide-scrollbar">
+<button class="flex-none px-3 py-1.5 bg-primary text-white text-xs font-bold rounded-full border border-primary">
+        Todos
+    </button>
+<button class="flex-none px-3 py-1.5 bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-medium rounded-full border border-slate-200 dark:border-slate-600 hover:border-primary hover:text-primary transition-colors">
+        Campos Propiedad
+    </button>
+<button class="flex-none px-3 py-1.5 bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-medium rounded-full border border-slate-200 dark:border-slate-600 hover:border-primary hover:text-primary transition-colors">
+        Bloques Contenido
+    </button>
+<button class="flex-none px-3 py-1.5 bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-medium rounded-full border border-slate-200 dark:border-slate-600 hover:border-primary hover:text-primary transition-colors">
+        Cálculos
+    </button>
+</div>
+<div class="mb-8">
+<h4 class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">home</span>
+                Campos de Propiedad
+            </h4>
+<div class="grid grid-cols-2 gap-2">
+<div class="cursor-grab active:cursor-grabbing p-2.5 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center gap-2.5 hover:border-primary hover:shadow-sm transition-all group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary text-[20px]">person</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">Cliente</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing p-2.5 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center gap-2.5 hover:border-primary hover:shadow-sm transition-all group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary text-[20px]">title</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">Título</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing p-2.5 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center gap-2.5 hover:border-primary hover:shadow-sm transition-all group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary text-[20px]">location_on</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">Dirección</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing p-2.5 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center gap-2.5 hover:border-primary hover:shadow-sm transition-all group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary text-[20px]">map</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">Barrio</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing p-2.5 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center gap-2.5 hover:border-primary hover:shadow-sm transition-all group col-span-2">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary text-[20px]">square_foot</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">Superficies (Cub/Desc)</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing p-2.5 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center gap-2.5 hover:border-primary hover:shadow-sm transition-all group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary text-[20px]">meeting_room</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">Ambientes</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing p-2.5 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center gap-2.5 hover:border-primary hover:shadow-sm transition-all group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary text-[20px]">bathtub</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">Baños</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing p-2.5 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center gap-2.5 hover:border-primary hover:shadow-sm transition-all group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary text-[20px]">garage</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">Cochera</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing p-2.5 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center gap-2.5 hover:border-primary hover:shadow-sm transition-all group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary text-[20px]">attach_money</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">Expensas</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing p-2.5 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center gap-2.5 hover:border-primary hover:shadow-sm transition-all group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary text-[20px]">receipt_long</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">ABL</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing p-2.5 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center gap-2.5 hover:border-primary hover:shadow-sm transition-all group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary text-[20px]">check_circle</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">Estado</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing p-2.5 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center gap-2.5 hover:border-primary hover:shadow-sm transition-all group col-span-2">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary text-[20px]">info</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200">Más Info</span>
+</div>
+</div>
+</div>
+<div class="mb-8">
+<h4 class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">widgets</span>
+                Bloques de Contenido
+            </h4>
+<div class="flex flex-col gap-2">
+<div class="cursor-grab active:cursor-grabbing p-3 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center justify-between hover:border-primary hover:shadow-sm transition-all group">
+<div class="flex items-center gap-3">
+<div class="bg-slate-100 dark:bg-slate-600 p-2 rounded text-slate-500 dark:text-slate-300 group-hover:text-primary">
+<span class="material-symbols-outlined">photo_library</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-slate-700 dark:text-slate-200">Galería de Imágenes</span>
+<span class="text-[10px] text-slate-400">Cuadrícula o Carrusel</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-300">drag_indicator</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing p-3 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center justify-between hover:border-primary hover:shadow-sm transition-all group">
+<div class="flex items-center gap-3">
+<div class="bg-slate-100 dark:bg-slate-600 p-2 rounded text-slate-500 dark:text-slate-300 group-hover:text-primary">
+<span class="material-symbols-outlined">table_chart</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-slate-700 dark:text-slate-200">Tabla de Comparables</span>
+<span class="text-[10px] text-slate-400">Columnas configurables</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-300">drag_indicator</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing p-3 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center justify-between hover:border-primary hover:shadow-sm transition-all group">
+<div class="flex items-center gap-3">
+<div class="bg-slate-100 dark:bg-slate-600 p-2 rounded text-slate-500 dark:text-slate-300 group-hover:text-primary">
+<span class="material-symbols-outlined">image</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-slate-700 dark:text-slate-200">Imágenes de Comparables</span>
+<span class="text-[10px] text-slate-400">Una por comparable</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-300">drag_indicator</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing p-3 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center justify-between hover:border-primary hover:shadow-sm transition-all group">
+<div class="flex items-center gap-3">
+<div class="bg-slate-100 dark:bg-slate-600 p-2 rounded text-slate-500 dark:text-slate-300 group-hover:text-primary">
+<span class="material-symbols-outlined">map</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-slate-700 dark:text-slate-200">Mapa de Ubicación</span>
+<span class="text-[10px] text-slate-400">Satelital o Callejero</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-300">drag_indicator</span>
+</div>
+</div>
+</div>
+<div class="mb-8">
+<h4 class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">calculate</span>
+                Resultados de Cálculos
+            </h4>
+<div class="mb-3 cursor-grab active:cursor-grabbing p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg flex items-center justify-between hover:shadow-md transition-all group">
+<div class="flex items-center gap-3">
+<div class="bg-blue-100 dark:bg-blue-800 p-2 rounded text-blue-600 dark:text-blue-200">
+<span class="material-symbols-outlined">stars</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-extrabold text-blue-800 dark:text-blue-100 uppercase">Precio Publicación Sugerido</span>
+<span class="text-[10px] text-blue-600 dark:text-blue-300">Resaltado automático</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-blue-300">add</span>
+</div>
+<div class="mb-3 cursor-grab active:cursor-grabbing p-3 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center justify-between hover:border-primary hover:shadow-sm transition-all group">
+<div class="flex items-center gap-3">
+<div class="bg-slate-100 dark:bg-slate-600 p-2 rounded text-slate-500 dark:text-slate-300 group-hover:text-primary">
+<span class="material-symbols-outlined">price_check</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-slate-700 dark:text-slate-200">Precio Cierre Posible</span>
+<span class="text-[10px] text-slate-400">Estimación conservadora</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-300">drag_indicator</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="cursor-grab active:cursor-grabbing p-2.5 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center gap-2 hover:border-primary hover:shadow-sm transition-all">
+<span class="material-symbols-outlined text-slate-400 text-[18px]">analytics</span>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-200">Promedio General</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing p-2.5 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center gap-2 hover:border-primary hover:shadow-sm transition-all">
+<span class="material-symbols-outlined text-slate-400 text-[18px]">check_circle</span>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-200">Prom. Aceptable</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing p-2.5 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center gap-2 hover:border-primary hover:shadow-sm transition-all">
+<span class="material-symbols-outlined text-slate-400 text-[18px]">shopping_cart</span>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-200">Prom. Vendibles</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing p-2.5 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center gap-2 hover:border-primary hover:shadow-sm transition-all">
+<span class="material-symbols-outlined text-slate-400 text-[18px]">trending_up</span>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-200">Conversión</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing p-2.5 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg flex items-center gap-2 hover:border-primary hover:shadow-sm transition-all col-span-2">
+<span class="material-symbols-outlined text-slate-400 text-[18px]">donut_small</span>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-200">Gráfico de Promedios</span>
+</div>
+</div>
+</div>
+<div class="mb-4">
+<h4 class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">layers</span>
+                Elementos Generales
+            </h4>
+<div class="flex overflow-x-auto pb-2 gap-3 hide-scrollbar">
+<div class="flex-none w-24 flex flex-col items-center gap-2 p-3 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700 hover:bg-slate-100 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-slate-500">text_fields</span>
+<span class="text-[10px] font-bold text-slate-600 dark:text-slate-300 text-center leading-tight">Texto Libre</span>
+</div>
+<div class="flex-none w-24 flex flex-col items-center gap-2 p-3 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700 hover:bg-slate-100 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-slate-500">format_h1</span>
+<span class="text-[10px] font-bold text-slate-600 dark:text-slate-300 text-center leading-tight">Título / Encabezado</span>
+</div>
+<div class="flex-none w-24 flex flex-col items-center gap-2 p-3 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700 hover:bg-slate-100 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-slate-500">branding_watermark</span>
+<span class="text-[10px] font-bold text-slate-600 dark:text-slate-300 text-center leading-tight">Pie de Página</span>
+</div>
+<div class="flex-none w-24 flex flex-col items-center gap-2 p-3 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700 hover:bg-slate-100 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-slate-500">filter_1</span>
+<span class="text-[10px] font-bold text-slate-600 dark:text-slate-300 text-center leading-tight">Número Página</span>
+</div>
+<div class="flex-none w-24 flex flex-col items-center gap-2 p-3 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700 hover:bg-slate-100 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-slate-500">business</span>
+<span class="text-[10px] font-bold text-slate-600 dark:text-slate-300 text-center leading-tight">Logo Inmobiliaria</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>
